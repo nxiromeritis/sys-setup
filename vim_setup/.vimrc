@@ -1,7 +1,5 @@
 """ .vimrc
 
-" Dimitrios Paraschas (paraschas@gmail.com)
-
 
 """ Vundle
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -36,6 +34,13 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Plugin 'micha/vim-colors-solarized'
+
+" fugitive
+"Plugin 'tpope/vim-fugitive'
+
+" vim-minimap
+Plugin 'severin-lemaignan/vim-minimap'
 
 " jedi-vim
 " https://github.com/davidhalter/jedi-vim
@@ -120,8 +125,11 @@ filetype plugin indent on    " required
 "
 
 """ syntax highlighting
-syntax on
-
+" syntax on
+" syntax on vs enable: https://stackoverflow.com/questions/33380451/
+if !exists("g:syntax_on")
+    syntax enable
+endif
 
 """ show (partial) command in the last line of the screen
 set showcmd
@@ -223,12 +231,22 @@ set foldmethod=indent
 set foldnestmax=1
 
 
-" set the color scheme
-colorscheme Tomorrow
+""" Color schemes
+
+" Tomorrow Themes
+"colorscheme Tomorrow
 "colorscheme Tomorrow-Night
-"colorscheme Tomorrow-Night-Bright
+colorscheme Tomorrow-Night-Bright
 "colorscheme Tomorrow-Night-Eighties
 
+" Solarized Theme
+"set background=light
+"set background=dark
+"colorscheme solarized
+
+
+""" vim-minimap
+let g:minimap_highlight='vimSearch'
 
 """ EasyMotion
 " https://github.com/Lokaltog/vim-easymotion
